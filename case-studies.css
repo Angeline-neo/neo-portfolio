@@ -1,0 +1,626 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: 'Garamond', Times, serif;
+  color: #1a1a1a;
+}
+
+.top-bar {
+  height: 4px;
+  background-color: #1a1a1a;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 32px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-size: 16px;
+  display: inline-block;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.nav a:hover {
+  color: #1a1a1a;
+  transform: scale(1.08);
+}
+
+/* ===== Overall page container ===== */
+/* ==========================================================
+   CASE STUDY LAYOUT WITH SIDEBAR
+   ========================================================== */
+.case-study-layout {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.case-sidebar {
+  position: sticky;       /* stays in view while the page scrolls */
+  top: 120px;               /* leaves room below the nav bar at the very top */
+  height: fit-content;       /* only as tall as its own content, not the full page */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 40px;
+}
+
+.sidebar-link {
+  color: #b0b0b0;            /* gray by default */
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+/* Added by JavaScript when this section is the one currently in view */
+.sidebar-link.active {
+  color: #1a1a1a;             /* turns black when its section is active */
+  font-weight: bold;
+}
+
+.case-study {
+  max-width: 760px;
+  margin: 0;
+  padding: 40px 24px 100px;
+}
+
+/* ===== Header: title, intro paragraph, meta row ===== */
+.case-header h1 {
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.case-intro {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 40px;
+}
+
+.meta-row {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+
+.meta-label {
+  font-size: 16px;
+  color: #888888;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
+/* ===== Hero purple image section ===== */
+.hero-image-section {
+  background-color: #8487e0;
+  border-radius: 4px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;   /* keeps the image's corners clipped to match the section's rounded corners */
+}
+
+.hero-image {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+/* ===== General case study section spacing ===== */
+.case-section {
+  margin-bottom: 40px;
+}
+
+.case-section p.eyebrow {
+ font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: #979797;
+  margin-bottom: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.case-section h2 {
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 600;
+}
+
+.case-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+/* ===== Inline images within sections ===== */
+.inline-image {
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+.inline-image-small {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 4px;
+}
+
+/* Dark background version, for diagrams shown on a dark canvas */
+.inline-image-dark {
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 16px;
+  background-color: #4a4a4a;
+}
+
+.image-caption {
+  font-size: 10px;
+  margin-top: 2px;
+  color: #bfbfbf;
+  text-align: center;
+  margin-top: 12px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200; 
+}
+
+/* ===== Side-by-side layout: image next to a callout box ===== */
+.side-by-side {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 16px;
+  flex-wrap: wrap;     /* stacks vertically if the screen is too narrow */
+}
+
+.side-by-side .inline-image-small {
+  flex: 1;
+  min-width: 240px;
+}
+
+/* ===== Callout box (shaded background, for highlighted lists) ===== */
+.callout-box {
+  background-color: #fbfbfb;
+  border-radius: 4px;
+  padding: 24px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.callout-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.callout-box ul,
+.role-list {
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.callout-box ul li,
+.role-list li {
+  margin-bottom: 6px;
+}
+
+/* ===== Problem statement: underlined emphasis ===== */
+.question-statement {
+  font-size: 18px;
+  text-decoration: underline;
+  margin-top: 8px;
+}
+
+/* ===== Market research grid (4 apps, 2x2 on desktop) ===== */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+
+/* Used alongside .market-grid specifically for 3-photo rows
+   (like the internship highlight photos), without affecting
+   the default 2-column market research grid elsewhere. */
+.photo-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.market-item {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+/* Used alongside .market-item for plain photo rows (no card background) */
+.photo-item {
+  background-color: transparent;
+  padding: 0;
+}
+
+.market-app-name {
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.market-img {
+  width: 100%;
+  height: auto; 
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.market-label {
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 6px;
+}
+
+.market-item ul {
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333333;
+}
+
+/* ===== Back to home link ===== */
+/* ==========================================================
+   "MORE WORK" SECTION (bottom of each case study page)
+   Shows the other two projects as preview cards, side by side.
+   ========================================================== */
+.more-work-section {
+  margin-top: 80px;
+  padding: 40px 80px;
+  border-top: 1px solid #ececec;
+}
+
+.more-work-title {
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 32px;
+}
+
+.more-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.more-work-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.more-work-thumb {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #ececec;
+  margin-bottom: 20px;
+  transition: opacity 0.2s ease;
+}
+
+.more-work-card:hover .more-work-thumb {
+  opacity: 0.85;
+}
+
+.more-work-card h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.more-work-card p {
+  font-size: 15px;
+  color: #6b6b6b;
+  margin-bottom: 16px;
+}
+
+.more-work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f0f0f0;
+  color: #4a4a4a;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+  .more-work-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.back-link-wrap {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 80px;  
+}
+
+.back-link {
+  color: #6b6b6b;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.25s ease;
+}
+
+.back-link:hover {
+  color: #1a1a1a;
+}
+
+/* ===== Responsive: stack market grid on narrow screens ===== */
+@media (max-width: 600px) {
+  .market-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================
+   IMAGE SLIDER / CAROUSEL
+   Supports dot navigation and drag/swipe.
+   Add class "img-slider" to the outer wrapper.
+   ========================================================== */
+.img-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-top: 24px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  cursor: grab;
+  user-select: none;
+}
+
+.slider-track.dragging {
+  transition: none;   /* disables animation during active drag for responsiveness */
+  cursor: grabbing;
+}
+
+.slider-slide {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.slider-img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  pointer-events: none;   /* prevents image from interfering with drag */
+}
+
+/* ===== arrow sliders ===== */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  z-index: 10;
+}
+
+.slider-arrow:hover {
+  background-color: #ffffff;
+}
+
+.slider-prev {
+  left: 16px;
+}
+
+.slider-next {
+  right: 16px;
+}
+
+.slider-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== Outcome auto-sliding carousel for project case study 2===== */
+.outcome-carousel {
+  position: relative;
+  height: 600px;        /* height of one visible card */
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.outcome-track {
+  position: relative;
+  height: 100%;
+}
+
+.outcome-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;    /* add this — stronger than opacity alone */
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+  pointer-events: none;
+}
+
+.outcome-slide.active {
+  opacity: 1;
+  visibility: visible;   /* add this */
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.outcome-slide.exit {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
+.outcome-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.outcome-slide .image-caption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #888888;
+  text-align: center;
+}
+
+.case-section ol,
+.case-section ul,
+.case-section li {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+  padding-left: 24px;
+}
+
+/* ==========================================================
+   PROJECT 3 METRICS SECTION
+   ========================================================== */
+.p3-metrics {
+  display: flex;
+  gap: 48px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.p3-metric {
+  flex: 1;
+}
+
+.p3-metric-number {
+  font-size: 56px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.p3-metric-label {
+  font-size: 15px;
+  color: #6b6b6b;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   NEWS SLIDER (Project 3)
+   ========================================================== */
+.news-slider {
+  position: relative;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.news-track {
+  display: flex;
+  transition: transform 1.0s ease;
+  cursor: grab;
+  user-select: none;
+}
+
+.news-track.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+.news-slide {
+  flex-shrink: 0;
+  width: 100%;        /* changed from 33.333% */
+  padding-right: 0;   /* remove the gap padding too */
+  box-sizing: border-box;
+}
+
+.news-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.news-headline {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.news-source {
+  font-size: 13px;
+  color: #888888;
+}
+
+/* Dot indicators */
+.news-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 5px;
+  margin-bottom: 48px;
+}
+
+.news-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d0d0d0;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.news-dot.active {
+  background-color: #1a1a1a;
+}
+
+.news-track.dragging {
+  cursor: grabbing;
+}
+
+.news-track {
+  cursor: grab;
+}

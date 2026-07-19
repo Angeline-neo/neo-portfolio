@@ -1,0 +1,406 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Page background ===== */
+body {
+  background-color: #ececec;
+  font-family: 'Garamond', Times, serif;
+}
+
+/* ===== Navigation links ===== */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 32px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #5f5f5f;
+  font-size: 16px;
+  position: relative;    /* add this */
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #DE7356;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav a:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================================
+   photo card
+   ========================================================== */
+.photo-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/* ==========================================================
+   NAV HOVER EFFECT
+   On hover, the link text darkens and grows very slightly,
+   giving a subtle "lifting toward you" feel.
+   ========================================================== */
+.nav a {
+  display: inline-block;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.nav a:hover {
+  color: #131313;
+  transform: scale(1.02);
+}
+
+/* ===== The big white hero card ===== */
+.hero-card {
+  position: relative;        /* lets us place icons absolutely inside it */
+  background-color: #ffffff;
+  max-width: 1000px;
+  margin: 0 auto;              /* centers the card horizontally */
+  min-height: 650px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Headline text in the middle ===== */
+/* ============================================
+   HERO CARD — wave + headline override
+   ============================================ */
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #F8F8F8;
+  box-shadow: 5px 5px 10px rgba(206, 206, 206, 0.3);
+}
+
+#wave-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  min-height: 650px;
+}
+
+.site-name-label {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #545454;
+  margin-bottom: auto;
+  opacity: 0;
+}
+
+.hero-headline {
+  font-family: 'Garamond', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 10;
+  line-height: 1.25;
+  color: #545454;
+  text-align: center;
+  letter-spacing: -0.01em;
+  opacity: 0;
+}
+
+.hero-headline em {
+  font-style: italic;
+}
+
+.hero-bottom {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  color: #545454;
+  
+}
+
+/* ===== Full-bleed cover image for project cards ===== */
+.project-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  transition: transform 0.4s ease;
+}
+
+.project-section-link:hover .project-cover-img {
+  transform: scale(1.03);
+}
+
+.footer-left,
+.footer-right {
+  opacity: 0;
+}
+
+.footer-arrow {
+  text-decoration: none;
+  opacity: 0;
+} 
+
+/* ==========================================================
+   PROJECT SECTIONS (stacked vertically below the hero card)
+   Each one is a purple card containing 3 phone images side by
+   side, plus a title and description in the bottom-left corner.
+   ========================================================== */
+.project-section-1 {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 40px auto;       /* centers it, with space above/below between sections */
+  min-height: 500px;
+  border-radius: 10px;
+  padding: 0px;
+  box-shadow: 5px 5px 10px rgba(206, 206, 206, 0.3);
+}
+
+.project-section-2 {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 40px auto;       /* centers it, with space above/below between sections */
+  min-height: 500px;
+  border-radius: 10px;
+  padding: 0px;
+  box-shadow: 5px 5px 10px rgba(206, 206, 206, 0.3);
+}
+
+.project-section-3 {
+  position: relative;
+  background-color: #f8f8f8;
+  max-width: 1200px;
+  margin: 40px auto;       /* centers it, with space above/below between sections */
+  min-height: 500px;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 5px 5px 10px rgba(206, 206, 206, 0.3);
+}
+
+/* ===== Link wrapper around clickable project sections ===== */
+.project-section-link {
+  display: block;
+  text-decoration: none;     /* removes the default underline on the whole section */
+  color: inherit;             /* prevents text inside from turning link-blue */
+  cursor: pointer;
+}
+
+.hover-hint {
+  position: absolute;
+  top: var(--mouse-y, 0px);
+  left: var(--mouse-x, 0px);
+  transform: translate(16px, -50%);
+
+  /* Liquid glass effect */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 12px 16px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.project-section-1:hover .hover-hint,
+.project-section-2:hover .hover-hint,
+.project-section-3:hover .hover-hint {
+  opacity: 1;
+}
+
+.project-section-link .project-section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section-link:hover .project-section {
+  transform: scale(1.2);     /* very subtle lift on hover, hints it's clickable */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.phone-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;          /* lets phones wrap to a new line on very narrow screens */
+}
+
+.phone-img {
+  height: 400px;
+  width: auto;
+}
+
+.project-caption-wrap {
+  margin-top: 30px;
+  color: #4c4c4c;
+  text-align: center;
+}
+
+.project-caption-wrap h2 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.project-caption-wrap p {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+/* ==========================================================
+   TESTIMONIALS SECTION (masonry layout)
+   ========================================================== */
+.testimonials-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.testimonials-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 48px;
+  color: #6b6b6b;
+  font-weight: 600;
+}
+
+.testimonials-grid {
+  column-count: 1;
+  column-gap: 24px;
+}
+
+@media (min-width: 700px) {
+  .testimonials-grid {
+    column-count: 2;
+  }
+}
+
+.testimonial-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-size: 17px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.testimonial-role {
+  font-size: 14px;
+  color: #888888;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333333;
+  margin-bottom: 12px;
+}
+
+.testimonial-text:last-child {
+  margin-bottom: 0;
+}
+
+
+
+/* ===== Footer ===== */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  color: #6b6b6b;
+  font-size: 16px;
+}
+
+.site-footer a {
+  color: #6b6b6b;
+  text-decoration: none;
+}

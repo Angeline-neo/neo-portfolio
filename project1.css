@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ececec;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.top-bar {
+  height: 4px;
+  background-color: #1a1a1a;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 32px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-size: 16px;
+}
+
+.scroll-section {
+  position: relative;
+  background-color: #8487e0;
+  max-width: 1200px;       /* matches .hero-card's width on the home page */
+  margin: 0 auto;           /* centers it horizontally, gray shows on either side */
+  min-height: 600px;
+  border-radius: 4px;       /* matches .hero-card's slightly rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;         /* keeps phone images from overflowing the rounded corners */
+}
+
+.phone-img {
+  height: 360px;
+  width: max-content;
+
+}
+
+.project-caption-wrap {
+  padding: 32px 60px;
+}
+
+.project-caption-wrap h2 {
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.project-caption-wrap p {
+  font-size: 16px;
+ 
+}

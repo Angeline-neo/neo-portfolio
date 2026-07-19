@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: 'Garamond', Times, serif;
+  color: #1a1a1a;
+}
+
+.top-bar {
+  height: 4px;
+  background-color: #6b6b6b;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 32px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #5f5f5f;
+  font-size: 16px;
+  position: relative;    /* add this */
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #DE7356;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav a:hover::after {
+  opacity: 1;
+}
+/* ==========================================================
+   NAV HOVER EFFECT
+   On hover, the link text darkens and grows very slightly,
+   giving a subtle "lifting toward you" feel.
+   ========================================================== */
+.nav a {
+  display: inline-block;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.nav a:hover {
+  color: #131313;
+  transform: scale(1.02);
+}
+
+/* ===== Main bio text content ===== */
+.about-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.about-content .intro {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.about-content p {
+  margin-bottom: 16px;
+}
+
+.about-section {
+  margin-top: 32px;
+}
+
+.about-section h3 {
+  font-size: 16px;
+  color: #3b3b3b;
+  margin-bottom: 8px;
+}
+
+.experience-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.experience-list li {
+  margin-bottom: 4px;
+}
+
+/* ===== Photo gallery row (auto-sliding carousel) ===== */
+.photo-gallery {
+  overflow: hidden;     /* hides the second duplicate set until the animation slides it into view */
+  padding: 0 0 60px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;       /* lets the track be as wide as its content needs (14 boxes total) */
+  animation: scroll-left 35s linear infinite;
+}
+
+/* Pauses the animation when the mouse hovers over it — a nice touch
+   so a viewer can pause to look at a specific photo */
+.photo-gallery:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Moves left by exactly the width of ONE set of boxes (7 boxes + 6 gaps).
+       Since the second set is identical, this creates the seamless loop. */
+    transform: translateX(calc(-7 * 180px - 6 * 12px));
+  }
+}
+
+.carousel-img {
+  width: 300px;
+  height: 210px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+/* ===== Footer social links ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 40px 0;
+  border-top: 1px solid #ececec;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #6b6b6b;
+  font-size: 16px;
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Display Control Design — Angeline Neo</title>
+  <link rel="stylesheet" href="case-studies.css">
+  <link rel="stylesheet" href="flair.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About me</a>
+    <a href="playground.html">Playground</a>
+  </nav>
+
+  <div class="case-study-layout">
+
+    <!-- 
+      Sidebar table of contents, tailored to this project's flow.
+      case-study-project2.js detects which section is in view and
+      adds "active" to the matching link, turning it from gray to black.
+    -->
+    <aside class="case-sidebar">
+      <a href="#intro" class="sidebar-link">Intro</a>
+      <a href="#challenge" class="sidebar-link">Challenge</a>
+      <a href="#process" class="sidebar-link">Process</a>
+      <a href="#result" class="sidebar-link">Result</a>
+      <a href="#reflection" class="sidebar-link">Reflection</a>
+    </aside>
+
+    <main class="case-study">
+
+    <div id="intro">
+      <!-- ===== Title + role summary ===== -->
+      <header class="case-header">
+        <h1>OpenPV Display Design</h1>
+        <p class="case-intro">
+          Enovation Controls is an innovative manufacturer of electronic controls and displays for
+          diverse markets. This project invovled designing a reusable UI template for the OpenPV platform — a toolkit B2B clients use to build and customize their own control displays.
+          </p>
+        <div class="meta-row">
+          <div class="meta-item">
+            <p class="meta-label">Role</p>
+            <p class="meta-value">UX Design Intern</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Company</p>
+            <p class="meta-value">Enovation Controls</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Department</p>
+            <p class="meta-value">Digital Product Design</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero image: hardware device photo -->
+      <section class="hero-image-section">
+        <img src="P2Cover.avif" alt="Digital Display Control hardware showing the Buzzer menu" class="hero-image">
+      </section>
+
+      <!-- ===== Overview ===== -->
+      <section class="case-section">
+        <p class="eyebrow">THE MISSION</p>
+        <h2>Designing for a screen no standard guidelines covered</h2>
+        <p>
+          The engineering team built an early The engineering team built a functional prototype in Crank Storyboard to validate feasibility 
+          but the interface wasn't designed for usability. Navigation labels were unclear, button sizes were untested for touch accuracy, 
+          and the visual hierarchy didn't guide users through the control flow. That's where the design work began.
+        </p>
+        <p>
+        <img src="P2_Image2.avif" alt="Control display feature overview" class="inline-image">
+      </section>
+
+      <div id="challenge">
+      <!-- ===== Challenge ===== -->
+      <section class="case-section">
+        <p class="eyebrow">THE CHALLENGE</p>
+        <h2>No established rules for touch targets on hardware</h2>
+        <p>
+          Standard guidelines (Nielsen Norman: 38x38px minimum; W3C: 44x44px) were written for mobile and web 
+          not for a constrained 800x480px hardware display. Every sizing decision had to be tested directly on the device.
+        </p>
+        <img src="P2_Image4.png" alt="Two screenshots from online about touch target size reference" class="inline-image">
+      </section>
+    </div>
+
+    <div id="process">
+      <!-- ===== Figma button designs ===== -->
+      <section class="case-section">
+        <p class="eyebrow">PROCESS</p>
+        <p>A few different layouts were created with the navigation bar on the left side of the
+        screen for consistency with other company digital display controls.</p>
+        <img src="P2_Image3.avif" alt="Hand-drawn sketches of display layout options" class="inline-image">
+        </section>
+
+      <section class="case-section">
+        <h2>Buttons were too small</h2>
+        <p>Starting with the W3C-recommended 44px, I built button prototypes in Figma and tested them on the hardware. They were too small. After multiple rounds of testing with the engineering team, we landed on 100x100px — large enough to be clickable, accessible, and easy to target on a touchscreen.</p>
+        <img src="P2_Image6.png" alt="Two screens displaying 132 Hz with buttons; a finger points to a plus sign on the left screen and a minus sign on the right screen to test button sizes " class="inline-image">
+      </section>
+    
+        <section class="case-section">
+        <h2>Explored different UI design buttons on Figma</h2>
+        <p>So I explored five toggle button variations, testing different shapes, sizes, and visual treatments to find the most touch-friendly option. The focus was on clear state differentiation (On vs. Off) and large enough touch targets for users with varying finger sizes
+        critical on a small hardware display where mis-taps directly interrupt workflow.</p>
+        <img src="P2_Image5.avif" alt="Figma exploration of On/Off button shapes and styles" class="inline-image">
+        </section> 
+
+      <section class="case-section">
+        <p class="eyebrow">AFTER MANY ROUNDS OF TESTING</p>
+        <p>
+        We tested five button shapes. The rectangle with rounded corners was the final pick because it has a large touch target size, and the
+          rounded corners create a user-friendly approach.
+        </p>
+        <video src="P2_Video.MOV" class="inline-image-dark" autoplay muted loop playsinline></video>
+      </section>
+
+      <!-- ===== Cross-functional collaboration / Zeplin ===== -->
+      <section class="case-section">
+        <p class="eyebrow">HAND-OFF TO THE DEVELOPMENT TEAM</p>
+        <p>
+          After each screen was made, the screens were imported to Zeplin for the developer team
+          to view the design components, properties, typeface, font size, and pixels. The
+          components, font types, and graphics were saved separately in a collaboration file.
+        </p>
+        <img src="P2_Image7.avif" alt="Annotated spec diagram showing button measurements" class="inline-image-dark">
+      </section>
+
+      <section class="case-section">
+        <img src="P2_Image8.avif" alt="A screenshot of the U I dashboard on Zeplin software" class="inline-image">
+      </section>
+    </div>
+
+<div id="result">
+  <section class="case-section">
+    <p class="eyebrow">RESULT</p>
+    <h2>Product launched in July 2023</h2>
+    <p>
+      After a series of back and forth discussion working with three software engineers to implement the design to the hardware, the product was shipped and launched to the B2B market. Within the first month, six individuals were actively using the tool.
+    </p>
+   <img src="P2_Image18.png" alt="A screenshot of a press by Enovation Controls with the title Create stunning displays with easy, thanks to OpenPV " class="inline-image">
+   <img src="P2_Image19.png" alt="Three LinkedIn posts about the launch of OpenPV from stakeholders and internal teams" class="inline-image">
+  </section> 
+
+</div>
+    <div id="reflection">
+      <!-- ===== Personal reflection ===== -->
+      <section class="case-section">
+        <p class="eyebrow">REFLECTION</p>
+        <h2>Key Learnings</h2>
+        <ol>
+        <li> Understanding technical constraints and speaking the same language as developers was challenging, since I didn't have a strong development background. I learned how to communicate by asking a lot of questions.</li>
+        <li> I learned that shipping a product requires cross-functional alignment, multiple hardware testing, and constant communication across marketing, design, and engineering teams.</li>
+        <li> If given more time, I would validate the design through usability testing with software engineers, the primary users of this tool.</li> 
+      </div>
+      </section>
+
+      <!-- ===== Internship highlights ===== -->
+      <section class="case-section">
+        <h2>Highlights</h2>
+        <p>
+          In this 9-weeks internship, I enjoyed my experience working for Enovation Controls
+          and exploring the city of Tulsa, Oklahoma. I'm grateful for the opportunity to meet all
+          the amazing and talented people there. Here are some shots of the highlight of my
+          internship.
+        </p>
+        <img src="P2_Image13.avif" alt="Group photo of interns from manufacturing, engineering, and UI/UX departments" class="inline-image">
+        <p class="image-caption">A picture of the interns from the manufacturing, engineering, and UI/UX department</p>
+        
+        <img src="P2_Image17.avif" alt="The Digital Product Design team at the Enovation Controls office" class="inline-image" style="margin-top: 24px;">
+        <p class="image-caption">The Digital Product Design team</p>
+      </section>
+    </div>
+    
+  
+
+ 
+  </main>
+ 
+  </div>
+  
+   <!-- ===== More work ===== -->
+  <section class="more-work-section">
+    <p class="more-work-title"></p>
+    <div class="more-work-grid">
+ 
+      <a href="case-study-project1.html" class="more-work-card">
+        <img src="woundmanagementcover.png" alt="A wound education mobile app screen with a negative wound therapy machine on the background" class="more-work-thumb">
+        <h3>Wound Education App</h3>
+        <p>Giving 11 million chronic-wound patients a better way to heal</p>
+        <span class="more-work-link">Read me ↗</span>
+      </a>
+ 
+      <a href="case-study-project3.html" class="more-work-card">
+        <img src="P3_Covercasestudy.png" alt="Portrait of Mariangela Hungaria, 2025 World Food Prize laureate from Brazil, in a white lab coat, with a darken paddy field in the background and two." class="more-work-thumb">
+        <h3>Laureate Announcement Brand Identity</h3>
+        <p>A brand campaign resulted in 2.6 billion media reach, including Bill Gates</p>
+        <span class="more-work-link">Read me ↗</span>
+      </a>
+ 
+    </div>
+  </section>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="case-study-project2.js"></script>
+ 
+</body>
+</html>
