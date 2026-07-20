@@ -10,9 +10,10 @@ const lightboxClose = document.getElementById("lightboxClose");
 
 // ---- OPENING THE LIGHTBOX ----
 galleryBoxes.forEach((box) => {
-  box.addEventListener("click", () => {
-    const imageSource = box.dataset.full;
-    const captionText = box.dataset.caption;
+  box.addEventListener("click", (e) => {
+    const clickedBox = e.currentTarget;
+    const imageSource = clickedBox.dataset.full;
+    const captionText = clickedBox.dataset.caption;
 
     lightboxImg.src = imageSource;
     lightboxCaption.textContent = captionText;
